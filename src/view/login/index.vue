@@ -3,16 +3,17 @@
     <div class="login-box">
       <div class="title">vueSysTemplate</div>
       <div class="child-box"  v-if="!isRegister">
-        <el-input placeholder="your username" v-model="user"> </el-input>
+        <el-input placeholder="your phone" v-model="phone"> </el-input>
         <el-input placeholder="your password" show-password v-model="password"> </el-input>
 
-        <el-button type="primary">login</el-button>
         <el-button @click="isRegister = !isRegister" type="primary"
           >register</el-button
         >
+        <el-button type="primary">login</el-button>
       </div>
       <div class="child-box" v-if="isRegister">
         <el-input placeholder="your username" v-model="user"> </el-input>
+        <el-input placeholder="your phone" v-model="phone"> </el-input>
         <el-input placeholder="your password" show-password v-model="password"> </el-input>
         <el-button @click="isRegister = !isRegister" type="primary"
           >return</el-button
@@ -49,7 +50,7 @@ export default {
   padding: 20px 0;
 }
 #login .login-box {
-  height: 300px;
+  height: 350px;
   width: 400px;
   background-color: #94faf5;
   margin: auto;
