@@ -9,6 +9,18 @@ import page3 from '@/view/page/page3'
 
 Vue.use(Router)
 
+Router.beforeEach((to, from, next) => {
+  if (to.path === "/login") {
+    next()
+  } else {
+    if (cookieData("get", "token")) {
+      next()
+    } else {
+      next("/login");
+    }
+  }
+})
+
 export default new Router({
   routes: [
     {

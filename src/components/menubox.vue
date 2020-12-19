@@ -32,6 +32,11 @@ export default {
     },
     methods:{
       goToPage(index) {
+        // this.$message({
+        //   showClose: true,
+        //   message: '恭喜你，这是一条成功消息',
+        //   type: 'success'
+        // });
         this.$router.push({path:'/page'+index})
       }
     }
