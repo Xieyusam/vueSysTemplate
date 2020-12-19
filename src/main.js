@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from "./util/axios"
+import {
+  cookieData
+} from "@/util/local";
 
 
 Vue.config.productionTip = false
@@ -13,6 +16,18 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
 Vue.prototype.$axios = axios;
+
+router.beforeEach((to, from, next) => {
+  if (to.path === "/login") {
+    next()
+  } else {
+    if (cookieData("get", "token")) {
+      next()
+    } else {
+      next("/login");
+    }
+  }
+})
 
 /* eslint-disable no-new */
 new Vue({
